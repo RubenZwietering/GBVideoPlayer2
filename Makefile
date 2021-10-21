@@ -18,7 +18,7 @@ TITLE_END = "\033[0m"
 $(OUT)/$(basename $(notdir $(SOURCE))).gbc: output/video.gbc $(OUT)/video.bin
 	@echo $(TITLE)Creating ROM...$(TITLE_END)
 	cat $^ > $@
-	rgbfix -Cv -t "GBVP2" -m 25 $@
+	rgbfix -Cv -p 0 -t "GBVP2" -m 25 $@
 	cp output/video.sym $(basename $@).sym
 	
 output/video.gbc: video.asm
